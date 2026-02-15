@@ -24,11 +24,7 @@
 
 <div align="center">
 
----
-
 # ▶ Running a Game Against the Agent (Agent vs Agent)
-
----
 
 </div>
 
@@ -38,35 +34,45 @@ The agent connects to a tournament server or another agent.
 
 ```bash
 our_agent.exe --net 127.0.0.1 9999 --side b
+```
 
-🔹 Parameters
+### 🔹 Parameters
+
+```txt
 --net <HOST> <PORT>   Server IP address and port
 --side w | b          Side of the agent
                       w = White
                       b = Black
-🔹 Example Full Scenario (30-Game Tournament)
+```
+
+### 🔹 Example Full Scenario (30-Game Tournament)
+
+```bash
 server2p.exe 9999 logs -v --accept-tournament-cmd --elo --elo-baseline 1500 --elo-k 40
 
 ChessNet.exe --net 127.0.0.1 9999 --side w --tour 30 --random-openings --random-plies 1 --seed 1338
 
 our_agent.exe --net 127.0.0.1 9999 --side b
+```
 
-In this scenario:
+**In this scenario:**
 
-1.ChessNet plays White
+- ChessNet plays White  
+- Our agent plays Black  
 
-2.Our agent plays Black
+---
 
 <div align="center">
 
-📊 Interpreting the Agent Output
+# 📊 Interpreting the Agent Output
 
 </div>
 
 After every ply (move), the agent prints search information.
 
-🔹 Example Output
+### 🔹 Example Output
 
+```txt
 COMPUTER MOVE !!!!!!!!!!!!!!!!!!!!!!!!!
 I'm thinking ........
 depth = 1 | score = 10
@@ -85,11 +91,12 @@ final score: -5
 
 qnodes: 890 | max_qdepth: 3
 Agent plays: a7a5
+```
 
-🔹 Explanation
+### 🔹 Explanation
 
-| Field            | Meaning                           |
-| ---------------- | --------------------------------- |
+| Field             | Meaning                           |
+|------------------|-----------------------------------|
 | depth = k        | Search depth                      |
 | score            | Evaluation of position            |
 | Positive score   | Good for White                    |
@@ -101,52 +108,85 @@ Agent plays: a7a5
 | max_qdepth       | Max quiescence depth              |
 | Agent plays      | Selected move                     |
 
-Move format example:
-a7a5 → pawn moves from a7 to a5
+**Move format example:**  
+`a7a5` → pawn moves from `a7` to `a5`
+
+---
 
 <div align="center">
 
-⚙ Custom Starting Position (SETUP)
+# ⚙ Custom Starting Position (SETUP)
 
 </div>
 
 Play locally using:
 
+```bash
 humanVSouragent.exe
+```
 
 You will be asked:
 
+```txt
 Enter total game time (minutes):
 Enter SETUP (or press Enter for default):
+```
 
-🔹 SETUP Format
+### 🔹 SETUP Format
 
 Each pawn:
+
+```txt
 <Color><File><Rank>
 W = White pawn
 B = Black pawn
-🔹 Example
+```
+
+### 🔹 Example
+
+```txt
 Wa2 Wb2 Wc2
 Ba7 Bb7
-🔹 Default Setup
+```
+
+### 🔹 Default Setup
+
+```txt
 Wa2 Wb2 Wc2 Wd2 We2 Wf2 Wg2 Wh2
 Ba7 Bb7 Bc7 Bd7 Be7 Bf7 Bg7 Bh7
-🔹 Entering Moves
+```
+
+---
+
+### 🔹 Entering Moves
+
+```txt
 Your move (e2e4 / exit):
+```
+
 Example:
+
+```txt
 a2a4
+```
+
 To resign:
+
+```txt
 exit
+```
+
+---
+
 <div align="center">
 
-✅ Summary
+# ✅ Summary
+
 </div>
 
-our_agent.exe → Play vs other agents
+- `our_agent.exe` → Play vs other agents  
+- `humanVSouragent.exe` → Play locally  
+- SETUP allows any custom starting position  
+- Agent prints depth, evaluation, and chosen move  
 
-humanVSouragent.exe → Play locally
-
-SETUP allows any custom starting position
-
-Agent prints depth, evaluation, and chosen move
-
+---
