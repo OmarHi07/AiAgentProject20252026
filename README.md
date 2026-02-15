@@ -2,6 +2,8 @@
 ===== Pawn-Only Chess – AlphaBeta Agent =====
 =============================================
 
+============= OMAR HIJAB ====================
+
 This document explains:
 
 1.How to run a game against the agent (our_agent.exe)
